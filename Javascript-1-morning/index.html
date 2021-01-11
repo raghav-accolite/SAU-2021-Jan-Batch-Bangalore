@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS assignment</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <form action="javascript:void(0);" onsubmit="return validate()" method="POST">
+        <label for="name">Enter your Name:</label>
+        <input type="text" id="name"><br>
+        <label for="email">Enter your Email:</label>
+        <input type="gender" id="email"><br>
+        <label for="name">Enter your Gender:</label>
+        <input type="radio" id="gender_male" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="gender_female" name="gender" value="female">
+        <label for="female">Female</label>
+        <input type="radio" id="gender_other" name="gender" value="other">
+        <label for="other">Other</label> 
+        <br>
+        <label for="cars">Enter your Car:</label>
+
+        <select name="cars" id="cars">
+            <option value="Noselect">Not Selected</option>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+          <br>
+          <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
