@@ -1,0 +1,19 @@
+
+  <ng-container *ngIf="apidata">
+    <ol>
+    <ng-container *ngFor="let x of apidata">
+        
+            <li class="pointer" [class.selected]="apidatafor.id===x.id" *ngIf="x.id < 21">
+                <a (click)="getApiValueFor(x.id)" >{{x.title}}</a></li>
+
+    </ng-container>
+    </ol>
+  </ng-container>
+<hr><br>
+  <ng-container *ngIf="apidatafor.id">
+      <ul>
+          <li>Id - {{apidatafor.id}}</li>
+          <li>Title - {{apidatafor.title}}</li>
+      </ul>
+
+  </ng-container>

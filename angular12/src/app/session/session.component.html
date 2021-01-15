@@ -1,0 +1,69 @@
+
+<ul>
+    <li *ngFor="let session of auSessions" >
+      <span [class.selected]="selectedSession===session" (click)="showDetails(session)">{{session.name}} </span>
+      <span> <button (click)="editSession(session)">Edit</button> </span> 
+    </li>
+  </ul>
+
+ 
+  <ng-container *ngIf="selectedSession">
+    <p>Selected session is : {{selectedSession.name}}</p>
+        <ul>
+            <li>
+                SessionId -  {{selectedSession.id}}
+            </li>
+            <li>
+                Session Name -  {{selectedSession.name}}
+            </li>
+            <li>
+                Session Trainer -  {{selectedSession.trainer}}
+            </li>
+            <li>
+                Session Date -  {{selectedSession.date}}
+            </li>
+        </ul>
+  </ng-container>
+
+  <ng-container *ngIf="EditorSession">
+    
+    <p>Selected session is : {{EditorSession.name}}</p>
+    <form (submit)="EditSessionInfo($event)">
+        <label for="EditorSessionName">Session Name </label>
+        <input  type="text" name="EditorSessionName" id="EditorSessionName" value="{{EditorSession.name}}" ><br>
+        <label for="EditorSessionTrainer">Session Trainer</label>
+        <input type="text" name="EditorSessionTrainer" id="EditorSessionTrainer" value="{{EditorSession.trainer}}" ><br>
+        <label for="EditorSessionDate">Session Date</label>
+        <input  type="text" name="EditorSessionDate" id="EditorSessionDate" value="{{EditorSession.date}}" ><br>
+        <button class="EditSubmitbtn" type="submit" >Save</button>
+    </form> 
+    
+  </ng-container>
+  <button class="EditSubmitbtn"(click)="addSession()">Add Session</button>
+  
+  <button class="EditSubmitbtn" (click)="DeleteSession()">Delete Session</button>
+
+  <ng-container *ngIf="AddingSession">
+    <form (submit)="addSessionInfo($event)">
+    <label for="AddSessionName">Session Name </label>
+    <input  type="text" name="AddSessionName" id="AddSessionName" ><br>
+    <label for="AddSessionTrainer">Session Trainer</label>
+    <input type="text" name="AddSessionTrainer" id="AddSessionTrainer" ><br>
+    <label for="AddSessionDate">Session Date</label>
+    <input  type="text" name="AddSessionDate" id="AddSessionDate" ><br>
+    <button class="EditSubmitbtn" type="submit" >Save</button>
+</form> 
+</ng-container>
+
+<ng-container *ngIf="DeletingSession">
+    <p>Click Delete to Delete Session</p>
+    <ul>
+        <li *ngFor="let session of auSessions" >
+          <span >{{session.name}} </span>
+          <span> <button (click)="deleteSessionInfo(session)">Delete</button> </span> 
+        </li>
+      </ul>
+</ng-container>
+<br>
+<a href="/todos">For 7 & 8 step</a>
+
