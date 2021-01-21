@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING/DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans> <!-- global- default-init-method="onInit" default-destroy-method="onCleanup" -->
+    
+  <!-- Use of .properties file  -->
+  <bean id="mapset" class="com.au.spring.DrawingApp">
+  <property name="set">
+     <set>
+        <value>${onePlayerName}</value>
+        <value>${secondPlayerName}</value>
+        <value>Sehwag</value>
+    </set>
+    </property>
+     <property name="map">
+    <map>
+     <entry key="Raghav" value="Mandowara" />
+     <entry key="Abhimanyu" value="Sharma" />
+     <entry key="Anurag" value="Chaudhary" /> 
+    </map>
+    </property>
+  </bean>
+   
+ 
+  <!-- Externalize properties -->
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+     <property name="locations" value="setConfig.properties">
+     </property>
+  </bean>
+  
+</beans>
